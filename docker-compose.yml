@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  cartoonize:
+    container_name: cartoonize
+    image: cartoonize
+    ports:
+      - "8080:8080"
