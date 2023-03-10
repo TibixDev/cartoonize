@@ -9,6 +9,12 @@ COPY . ./
 
 ENV GOOGLE_APPLICATION_CREDENTIALS "./token.json"
 
+
+RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
+RUN cat /etc/apt/sources.list
+RUN rm -Rf /var/lib/apt/lists/*
+RUN apt-get update
+
 RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     libsm6 \
