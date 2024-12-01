@@ -9,9 +9,8 @@ COPY . ./
 
 ENV GOOGLE_APPLICATION_CREDENTIALS "./token.json"
 
-
-RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list
-RUN cat /etc/apt/sources.list
+RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list.d/debian.sources
+RUN cat /etc/apt/sources.list.d/debian.sources
 RUN rm -Rf /var/lib/apt/lists/*
 RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 RUN apt-get update
